@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      animation: slideDown 1s ease;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #38bdf8;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #f1f5f9;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 50px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #home h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    #about, #projects, #contact {
+      background: #1e293b;
+      border-radius: 20px;
+      margin: 20px 0;
+      padding: 40px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .project-card {
+      background: #334155;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0f172a;
+      color: #94a3b8;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Magalakshmi- Portfolio</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section id="home">
+    <h2>Hello, I'm Magalakshmi👋</h2>
+    <p>A passionate Web Developer creating interactive websites.</p>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a web developer skilled in HTML, CSS, JavaScript, and modern frameworks. I love building creative and user-friendly web applications with smooth animations.</p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Portfolio Website</h3>
+      <p>A personal website showcasing my work and skills.</p>
+    </div>
+    <div class="project-card">
+      <h3>To-Do App</h3>
+      <p>A simple and interactive app to manage daily tasks.</p>
+    </div>
+    <div class="project-card">
+      <h3>Animated Landing Page</h3>
+      <p>A landing page with smooth animations and modern UI.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: smagalakshmi52@gmail.com</p>
+    <p>LinkedIn: linkedin.com/in/Magalakshmi</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Magalakshmi. All Rights Reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Scroll Animation -->
+  <script>
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      const triggerBottom = window.innerHeight / 5 * 4;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add("show");
+        } else {
+          section.classList.remove("show");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
